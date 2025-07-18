@@ -1,0 +1,22 @@
+\doxysection{utilities.\+h}
+\hypertarget{utilities_8h_source}{}\label{utilities_8h_source}\index{/Users/adriangossl/Documents/git/mexMemory/include/memory/refCounting/utilities.h@{/Users/adriangossl/Documents/git/mexMemory/include/memory/refCounting/utilities.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MEXMEMORY\_UTILITIES\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MEXMEMORY\_UTILITIES\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}strongReference.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacememory_1_1ref_counting}{memory::refCounting}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacememory_1_1ref_counting_aaa188ecea86ac42ddcab3ea6fc286219}{enableReferenceDebugging}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{enable}},\ std::ostream*\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{stream}}\ =\ \&std::cout)}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ DebugConfig::enableLogging\ =\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{enable}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ DebugConfig::logStream\ =\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{stream}};}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MEXMEMORY\_UTILITIES\_H}}
+
+\end{DoxyCode}

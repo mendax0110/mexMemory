@@ -1,0 +1,194 @@
+\doxysection{memory\+::ref\+Counting\+::Control\+Block\texorpdfstring{$<$}{<} T, Allocator \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classmemory_1_1ref_counting_1_1_control_block}{}\label{classmemory_1_1ref_counting_1_1_control_block}\index{memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}}
+
+
+\doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block} is a reference counting control block for managing the lifetime of objects. It supports strong and weak references, and provides thread-\/safe reference counting.  
+
+
+
+
+{\ttfamily \#include $<$control\+Block.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_a35429c744082f87bfa4f74328c07df4c}{Control\+Block}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{ptr}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block} with a pointer to an object of type T. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_a491280d07230ca7397f5506b2bcc9f2f}{Control\+Block}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}} \&\&... \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{args}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block} with constructor arguments for the object of type T. (with our Allocator) \end{DoxyCompactList}\item 
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_ae9d09585f0755390b8ef79e8589a324c}\label{classmemory_1_1ref_counting_1_1_control_block_ae9d09585f0755390b8ef79e8589a324c} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Control\+Block} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block}, initializes with a nullptr object pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{void}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_ab24dd40946b74513c1ebaeae0f774111}{set\+Object\+Ptr}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{ptr}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Sets the object pointer to a new pointer, deallocating the old object if it exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_a99c63594137b776140e8a3f530d1a096}{get\+Object\+Ptr}} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Gets the pointer to the object managed by this \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block}. \end{DoxyCompactList}\item 
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_adc34438e8805698e54d2b7b25c87ed34}\label{classmemory_1_1ref_counting_1_1_control_block_adc34438e8805698e54d2b7b25c87ed34} 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{void}} {\bfseries increment\+Strong} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Increments the strong reference count. \end{DoxyCompactList}\item 
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_aa92500c1197270e94148997faf82225f}\label{classmemory_1_1ref_counting_1_1_control_block_aa92500c1197270e94148997faf82225f} 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{void}} {\bfseries decrement\+Strong} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Decrements the strong reference count and deletes the object if it reaches zero. \end{DoxyCompactList}\item 
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_aa94a289a7067f9ab8de9a4f4dbed446d}\label{classmemory_1_1ref_counting_1_1_control_block_aa94a289a7067f9ab8de9a4f4dbed446d} 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{void}} {\bfseries increment\+Weak} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Increments the weak reference count. \end{DoxyCompactList}\item 
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_a24fa838efcb5918e971742ba6fd68759}\label{classmemory_1_1ref_counting_1_1_control_block_a24fa838efcb5918e971742ba6fd68759} 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{void}} {\bfseries decrement\+Weak} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Decrements the weak reference count and deletes the control block if it reaches zero and there are no strong references. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{size\+\_\+t}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_a8b60669d7be54bb9d8b2851646be54ce}{strong\+Count}} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Gets the current strong reference count. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{size\+\_\+t}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_aaadb81c3548bf4159ebbd8e3af462b92}{weak\+Count}} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Gets the current weak reference count. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{bool}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_a1be10f920d59fd7a95f8f8791ffc7639}{had\+Object}} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Checks If has object pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_a055b91722f3c9f84ffc47c9aeca62c85}{get}} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Gets the object pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} = Default\+Allocator$<$\+T$>$$>$\newline
+class memory\+::ref\+Counting\+::\+Control\+Block$<$ T, Allocator $>$}
+\doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block} is a reference counting control block for managing the lifetime of objects. It supports strong and weak references, and provides thread-\/safe reference counting. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of object being managed. \\
+\hline
+{\em Allocator} & The allocator to use for memory management (default is \doxylink{structmemory_1_1ref_counting_1_1_default_allocator}{Default\+Allocator}). \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_a35429c744082f87bfa4f74328c07df4c}\label{classmemory_1_1ref_counting_1_1_control_block_a35429c744082f87bfa4f74328c07df4c} 
+\index{memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}!ControlBlock@{ControlBlock}}
+\index{ControlBlock@{ControlBlock}!memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{ControlBlock()}{ControlBlock()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{memory\+::ref\+Counting\+::\+Control\+Block}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::\+Control\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*}}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block} with a pointer to an object of type T. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to the object. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_a491280d07230ca7397f5506b2bcc9f2f}\label{classmemory_1_1ref_counting_1_1_control_block_a491280d07230ca7397f5506b2bcc9f2f} 
+\index{memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}!ControlBlock@{ControlBlock}}
+\index{ControlBlock@{ControlBlock}!memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{ControlBlock()}{ControlBlock()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$\+T$>$$>$ \\
+template$<$typename... Args$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{memory\+::ref\+Counting\+::\+Control\+Block}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::\+Control\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}} \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block} with constructor arguments for the object of type T. (with our Allocator) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & The types of the constructor arguments. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & The constructor arguments. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_a055b91722f3c9f84ffc47c9aeca62c85}\label{classmemory_1_1ref_counting_1_1_control_block_a055b91722f3c9f84ffc47c9aeca62c85} 
+\index{memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}!get@{get}}
+\index{get@{get}!memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{memory\+::ref\+Counting\+::\+Control\+Block}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the object pointer. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the object managed by this \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block}. 
+\end{DoxyReturn}
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_a99c63594137b776140e8a3f530d1a096}\label{classmemory_1_1ref_counting_1_1_control_block_a99c63594137b776140e8a3f530d1a096} 
+\index{memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}!getObjectPtr@{getObjectPtr}}
+\index{getObjectPtr@{getObjectPtr}!memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{getObjectPtr()}{getObjectPtr()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{memory\+::ref\+Counting\+::\+Control\+Block}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::get\+Object\+Ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the pointer to the object managed by this \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block}. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the object. 
+\end{DoxyReturn}
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_a1be10f920d59fd7a95f8f8791ffc7639}\label{classmemory_1_1ref_counting_1_1_control_block_a1be10f920d59fd7a95f8f8791ffc7639} 
+\index{memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}!hadObject@{hadObject}}
+\index{hadObject@{hadObject}!memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{hadObject()}{hadObject()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{bool}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{memory\+::ref\+Counting\+::\+Control\+Block}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::had\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Checks If has object pointer. 
+
+\begin{DoxyReturn}{Returns}
+A boolean indicating whether the \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block} has an object pointer. 
+\end{DoxyReturn}
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_ab24dd40946b74513c1ebaeae0f774111}\label{classmemory_1_1ref_counting_1_1_control_block_ab24dd40946b74513c1ebaeae0f774111} 
+\index{memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}!setObjectPtr@{setObjectPtr}}
+\index{setObjectPtr@{setObjectPtr}!memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{setObjectPtr()}{setObjectPtr()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{void}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{memory\+::ref\+Counting\+::\+Control\+Block}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::set\+Object\+Ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*}}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Sets the object pointer to a new pointer, deallocating the old object if it exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The new pointer to set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_a8b60669d7be54bb9d8b2851646be54ce}\label{classmemory_1_1ref_counting_1_1_control_block_a8b60669d7be54bb9d8b2851646be54ce} 
+\index{memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}!strongCount@{strongCount}}
+\index{strongCount@{strongCount}!memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{strongCount()}{strongCount()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{size\+\_\+t}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{memory\+::ref\+Counting\+::\+Control\+Block}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::strong\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the current strong reference count. 
+
+\begin{DoxyReturn}{Returns}
+A size\+\_\+t representing the number of strong references. 
+\end{DoxyReturn}
+\Hypertarget{classmemory_1_1ref_counting_1_1_control_block_aaadb81c3548bf4159ebbd8e3af462b92}\label{classmemory_1_1ref_counting_1_1_control_block_aaadb81c3548bf4159ebbd8e3af462b92} 
+\index{memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}!weakCount@{weakCount}}
+\index{weakCount@{weakCount}!memory::refCounting::ControlBlock$<$ T, Allocator $>$@{memory::refCounting::ControlBlock$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{weakCount()}{weakCount()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{size\+\_\+t}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{memory\+::ref\+Counting\+::\+Control\+Block}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::weak\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the current weak reference count. 
+
+\begin{DoxyReturn}{Returns}
+A size\+\_\+t representing the number of weak references. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/adriangossl/\+Documents/git/mex\+Memory/include/memory/ref\+Counting/control\+Block.\+h\end{DoxyCompactItemize}

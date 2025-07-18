@@ -1,0 +1,79 @@
+\doxysection{reference.\+h}
+\hypertarget{reference_8h_source}{}\label{reference_8h_source}\index{/Users/adriangossl/Documents/git/mexMemory/include/memory/refCounting/reference.h@{/Users/adriangossl/Documents/git/mexMemory/include/memory/refCounting/reference.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MEXMEMORY\_REFERENCE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MEXMEMORY\_REFERENCE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}controlBlock.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}forwardDecl.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacememory_1_1ref_counting}{memory::refCounting}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Allocator\ =\ DefaultAllocator<std::remove\_extent\_t<T>>>}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{ReferenceBase}}}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_aff29cb390b0436df327a0a81642d95a7}{elementType}}\ =\ std::remove\_extent\_t<T>;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{controlBlockType}}\ =\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{ControlBlock<elementType,\ Allocator>}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{controlBlockType}}*\ controlBlock\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_abc6ba49750d9a775d9ba6cb8ddc1524a}{ReferenceBase}}()\ noexcept\ =\ default;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ explicit\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{ReferenceBase}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{controlBlockType}}*\ cb)\ :\ controlBlock(cb)\ \{\}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_a9fec570bef52e57fe0e74142bce73a67}{swap}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{ReferenceBase}}\&\ other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(controlBlock,\ other.controlBlock);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_a911f3470097ab2843e13f7e7c6821baf}{isValid}}()\ const\ noexcept}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ controlBlock\ and\ controlBlock-\/>\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_a1be10f920d59fd7a95f8f8791ffc7639}{hadObject}}();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\ const\ noexcept}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_a911f3470097ab2843e13f7e7c6821baf}{isValid}}();}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_a8e04ec24f56f70eeefd4cce696107763}{useCount}}()\ const\ noexcept}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ controlBlock\ ?\ controlBlock-\/>\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_a8b60669d7be54bb9d8b2851646be54ce}{strongCount}}()\ :\ 0;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_a335022ecc44b1e68454fa0694e87a993}{reset}}()\ noexcept}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (controlBlock)}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock-\/>\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_aa92500c1197270e94148997faf82225f}{decrementStrong}}();}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_aff29cb390b0436df327a0a81642d95a7}{elementType}}*\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_acdf2b40af01ae3af2d27e89e81bb6f7b}{get}}()\ const\ noexcept}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ controlBlock\ ?\ controlBlock-\/>\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block_a055b91722f3c9f84ffc47c9aeca62c85}{get}}()\ :\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_aff29cb390b0436df327a0a81642d95a7}{elementType}}*\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_ac9056d56e4956ae3e97134a0a35327be}{operator-\/>}}()\ const\ noexcept}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_acdf2b40af01ae3af2d27e89e81bb6f7b}{get}}();}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_aff29cb390b0436df327a0a81642d95a7}{elementType}}\&\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_a8a85ae2f8d864f5eecb486dc95528f98}{operator*}}()\ const\ noexcept}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base_acdf2b40af01ae3af2d27e89e81bb6f7b}{get}}();}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \};}
+\DoxyCodeLine{00118\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MEXMEMORY\_REFERENCE\_H}}
+
+\end{DoxyCode}

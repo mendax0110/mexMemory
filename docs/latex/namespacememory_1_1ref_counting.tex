@@ -1,0 +1,116 @@
+\doxysection{memory\+::ref\+Counting Namespace Reference}
+\hypertarget{namespacememory_1_1ref_counting}{}\label{namespacememory_1_1ref_counting}\index{memory::refCounting@{memory::refCounting}}
+
+
+\doxylink{namespacememory_1_1ref_counting}{memory\+::ref\+Counting} namespace, which contains the \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block} class for reference counting memory management  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block} is a reference counting control block for managing the lifetime of objects. It supports strong and weak references, and provides thread-\/safe reference counting. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structmemory_1_1ref_counting_1_1_debug_config}{Debug\+Config}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structmemory_1_1ref_counting_1_1_debug_config}{Debug\+Config} is a configuration struct for enabling/disabling logging and setting the log stream. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structmemory_1_1ref_counting_1_1_default_allocator}{Default\+Allocator}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structmemory_1_1ref_counting_1_1_default_allocator}{Default\+Allocator} is a simple allocator that uses new/delete for memory management. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structmemory_1_1ref_counting_1_1_default_allocator_3_01_t_0f_0e_4}{Default\+Allocator$<$ T\mbox{[}$\,$\mbox{]}$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization of \doxylink{structmemory_1_1ref_counting_1_1_default_allocator}{Default\+Allocator} for arrays of type T. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}
+\begin{DoxyCompactList}\small\item\em Forward declaration of \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} class. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{Reference\+Base}}
+\begin{DoxyCompactList}\small\item\em Base class for reference types, providing common functionality for strong and weak references. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}
+\begin{DoxyCompactList}\small\item\em Forward declaration of \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , typename... Args$>$ }\\\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} $>$ \mbox{\hyperlink{namespacememory_1_1ref_counting_a5664a9ce4b317e1b0cf3e7ff7868adab}{make\+Ref}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}} \&\&... \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{args}})
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} object for a given type T with the specified constructor arguments. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} , typename... Args$>$ }\\\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$ \mbox{\hyperlink{namespacememory_1_1ref_counting_a4fcd55db54c0315da7240944687f0bd5}{make\+Ref\+With\+Allocator}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}} \&\&... \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{args}})
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} object for a given type T with the specified constructor arguments using a custom allocator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{void}} \mbox{\hyperlink{namespacememory_1_1ref_counting_aaa188ecea86ac42ddcab3ea6fc286219}{enable\+Reference\+Debugging}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{bool}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{enable}}, std\+::ostream \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{stream}}=\&std\+::cout)
+\begin{DoxyCompactList}\small\item\em Debug configuration for reference counting memory management. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{namespacememory_1_1ref_counting}{memory\+::ref\+Counting} namespace, which contains the \doxylink{classmemory_1_1ref_counting_1_1_control_block}{Control\+Block} class for reference counting memory management 
+
+Namespace for memory management with reference counting. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacememory_1_1ref_counting_aaa188ecea86ac42ddcab3ea6fc286219}\label{namespacememory_1_1ref_counting_aaa188ecea86ac42ddcab3ea6fc286219} 
+\index{memory::refCounting@{memory::refCounting}!enableReferenceDebugging@{enableReferenceDebugging}}
+\index{enableReferenceDebugging@{enableReferenceDebugging}!memory::refCounting@{memory::refCounting}}
+\doxysubsubsection{\texorpdfstring{enableReferenceDebugging()}{enableReferenceDebugging()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{void}} memory\+::ref\+Counting\+::enable\+Reference\+Debugging (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{bool}}}]{enable,  }\item[{std\+::ostream \texorpdfstring{$\ast$}{*}}]{stream = {\ttfamily \&std\+:\+:cout} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Debug configuration for reference counting memory management. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & The flag to enable or disable debugging. \\
+\hline
+{\em stream} & The output stream to log debug messages to. Defaults to std\+::cout. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacememory_1_1ref_counting_a5664a9ce4b317e1b0cf3e7ff7868adab}\label{namespacememory_1_1ref_counting_a5664a9ce4b317e1b0cf3e7ff7868adab} 
+\index{memory::refCounting@{memory::refCounting}!makeRef@{makeRef}}
+\index{makeRef@{makeRef}!memory::refCounting@{memory::refCounting}}
+\doxysubsubsection{\texorpdfstring{makeRef()}{makeRef()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , typename... Args$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} $>$ memory\+::ref\+Counting\+::make\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}} \&\&...}]{args }\end{DoxyParamCaption})}
+
+
+
+Creates a \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} object for a given type T with the specified constructor arguments. 
+
+Friend declaration for make\+Ref to allow access to private constructor.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of object being referenced, can be a single object or an array. \\
+\hline
+{\em Args} & The types of constructor arguments for the object. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & The constructor arguments for the object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} object representing the newly created object. 
+\end{DoxyReturn}
+\Hypertarget{namespacememory_1_1ref_counting_a4fcd55db54c0315da7240944687f0bd5}\label{namespacememory_1_1ref_counting_a4fcd55db54c0315da7240944687f0bd5} 
+\index{memory::refCounting@{memory::refCounting}!makeRefWithAllocator@{makeRefWithAllocator}}
+\index{makeRefWithAllocator@{makeRefWithAllocator}!memory::refCounting@{memory::refCounting}}
+\doxysubsubsection{\texorpdfstring{makeRefWithAllocator()}{makeRefWithAllocator()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} , typename... Args$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$ memory\+::ref\+Counting\+::make\+Ref\+With\+Allocator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}} \&\&...}]{args }\end{DoxyParamCaption})}
+
+
+
+Creates a \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} object for a given type T with the specified constructor arguments using a custom allocator. 
+
+Friend declaration for make\+Ref\+With\+Allocator to allow access to private constructor.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of object being referenced, can be a single object or an array. \\
+\hline
+{\em Allocator} & The allocator to use for memory management. \\
+\hline
+{\em Args} & The types of constructor arguments for the object. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & The constructor arguments for the object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} object representing the newly created object with the specified allocator. 
+\end{DoxyReturn}

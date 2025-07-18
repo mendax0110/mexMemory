@@ -1,0 +1,14 @@
+# Ignore the .idea directory
+.idea/
+
+# Ignore the cmake-build-debug directory
+cmake-build-debug/
+
+# Ignore the cmake-build-release directory
+cmake-build-release/
+
+# Ignore the build directory
+build/
+
+# Ignore .DS_Store file
+.DS_Store

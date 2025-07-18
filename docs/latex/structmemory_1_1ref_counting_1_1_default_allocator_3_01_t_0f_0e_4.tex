@@ -1,0 +1,73 @@
+\doxysection{memory\+::ref\+Counting\+::Default\+Allocator\texorpdfstring{$<$}{<} T\mbox{[}\mbox{]}\texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structmemory_1_1ref_counting_1_1_default_allocator_3_01_t_0f_0e_4}{}\label{structmemory_1_1ref_counting_1_1_default_allocator_3_01_t_0f_0e_4}\index{memory::refCounting::DefaultAllocator$<$ T\mbox{[}\mbox{]}$>$@{memory::refCounting::DefaultAllocator$<$ T[]$>$}}
+
+
+Specialization of \doxylink{structmemory_1_1ref_counting_1_1_default_allocator}{Default\+Allocator} for arrays of type T.  
+
+
+
+
+{\ttfamily \#include $<$control\+Block.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{static}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structmemory_1_1ref_counting_1_1_default_allocator_3_01_t_0f_0e_4_a0f8e88e1c59bce3ee641293fd9cda1fe}{allocate}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{size\+\_\+t}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{size}})
+\begin{DoxyCompactList}\small\item\em Allocates memory for an array of type T. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{static}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{void}} \mbox{\hyperlink{structmemory_1_1ref_counting_1_1_default_allocator_3_01_t_0f_0e_4_a1c88ff749a8e3e169cf5d4cc06eae8c5}{deallocate}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{ptr}})
+\begin{DoxyCompactList}\small\item\em Deallocates memory for an array of type T. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}$>$\newline
+struct memory\+::ref\+Counting\+::\+Default\+Allocator$<$ T\mbox{[}$\,$\mbox{]}$>$}
+Specialization of \doxylink{structmemory_1_1ref_counting_1_1_default_allocator}{Default\+Allocator} for arrays of type T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of objects in the array. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structmemory_1_1ref_counting_1_1_default_allocator_3_01_t_0f_0e_4_a0f8e88e1c59bce3ee641293fd9cda1fe}\label{structmemory_1_1ref_counting_1_1_default_allocator_3_01_t_0f_0e_4_a0f8e88e1c59bce3ee641293fd9cda1fe} 
+\index{memory::refCounting::DefaultAllocator$<$ T\mbox{[}\mbox{]}$>$@{memory::refCounting::DefaultAllocator$<$ T[]$>$}!allocate@{allocate}}
+\index{allocate@{allocate}!memory::refCounting::DefaultAllocator$<$ T\mbox{[}\mbox{]}$>$@{memory::refCounting::DefaultAllocator$<$ T[]$>$}}
+\doxysubsubsection{\texorpdfstring{allocate()}{allocate()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} $>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{static}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structmemory_1_1ref_counting_1_1_default_allocator}{memory\+::ref\+Counting\+::\+Default\+Allocator}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}\mbox{[}$\,$\mbox{]}$>$\+::allocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{size\+\_\+t}}}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Allocates memory for an array of type T. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The number of elements in the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated array. 
+\end{DoxyReturn}
+\Hypertarget{structmemory_1_1ref_counting_1_1_default_allocator_3_01_t_0f_0e_4_a1c88ff749a8e3e169cf5d4cc06eae8c5}\label{structmemory_1_1ref_counting_1_1_default_allocator_3_01_t_0f_0e_4_a1c88ff749a8e3e169cf5d4cc06eae8c5} 
+\index{memory::refCounting::DefaultAllocator$<$ T\mbox{[}\mbox{]}$>$@{memory::refCounting::DefaultAllocator$<$ T[]$>$}!deallocate@{deallocate}}
+\index{deallocate@{deallocate}!memory::refCounting::DefaultAllocator$<$ T\mbox{[}\mbox{]}$>$@{memory::refCounting::DefaultAllocator$<$ T[]$>$}}
+\doxysubsubsection{\texorpdfstring{deallocate()}{deallocate()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} $>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{static}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{void}} \mbox{\hyperlink{structmemory_1_1ref_counting_1_1_default_allocator}{memory\+::ref\+Counting\+::\+Default\+Allocator}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}\mbox{[}$\,$\mbox{]}$>$\+::deallocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} \texorpdfstring{$\ast$}{*}}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Deallocates memory for an array of type T. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to the array to deallocate. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/adriangossl/\+Documents/git/mex\+Memory/include/memory/ref\+Counting/control\+Block.\+h\end{DoxyCompactItemize}

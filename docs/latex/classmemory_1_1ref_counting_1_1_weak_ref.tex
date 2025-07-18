@@ -1,0 +1,386 @@
+\doxysection{memory\+::ref\+Counting\+::Weak\+Ref\texorpdfstring{$<$}{<} T, Allocator \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classmemory_1_1ref_counting_1_1_weak_ref}{}\label{classmemory_1_1ref_counting_1_1_weak_ref}\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+
+
+Forward declaration of \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} class.  
+
+
+
+
+{\ttfamily \#include $<$weak\+Reference.\+h$>$}
+
+Inheritance diagram for memory\+::ref\+Counting\+::Weak\+Ref\texorpdfstring{$<$}{<} T, Allocator \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmemory_1_1ref_counting_1_1_weak_ref}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a56ad82f3ab352a9e2fb4fd1f9f369a79}\label{classmemory_1_1ref_counting_1_1_weak_ref_a56ad82f3ab352a9e2fb4fd1f9f369a79} 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{constexpr}} {\bfseries Weak\+Ref} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}=\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{default}}
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_af728a4252108438338214ba872ca8b20}{Weak\+Ref}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$ \&\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{strong\+Ref}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} from a strong reference. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+convertible\+\_\+v$<$\+U\texorpdfstring{$\ast$}{*}, T\texorpdfstring{$\ast$}{*}$>$$>$$>$ }\\\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a78a63246ce1f533011767566dd76e90a}{Weak\+Ref}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \&\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{strong\+Ref}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} from a strong reference of a different type U, type A that is convertible to T. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_ac872e7c16be85d8b066116d320a9bd85}{Weak\+Ref}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \&\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{other}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+convertible\+\_\+v$<$\+U\texorpdfstring{$\ast$}{*}, T\texorpdfstring{$\ast$}{*}$>$$>$$>$ }\\\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a136b9447155b49dcdd2c344a67dce81d}{Weak\+Ref}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \&\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{other}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} of a different type U, type A that is convertible to T. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_ad11c86bbdf8edaeb3c9982441dba481b}{Weak\+Ref}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \&\&\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{other}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Move constructor for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that transfers ownership of the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+convertible\+\_\+v$<$\+U\texorpdfstring{$\ast$}{*}, T\texorpdfstring{$\ast$}{*}$>$$>$$>$ }\\\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a732588a28772f749aa2aa9fca0b5fa75}{Weak\+Ref}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \&\&\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{other}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Move constructor for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that transfers ownership of the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} of a different type U, type A that is convertible to T. \end{DoxyCompactList}\item 
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a3226af6b52cb7fb74f431f6f1a71d103}\label{classmemory_1_1ref_counting_1_1_weak_ref_a3226af6b52cb7fb74f431f6f1a71d103} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Weak\+Ref} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that releases the control block. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \& \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a41c476542c2a6027e1731a1927c5b3e6}{operator=}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \&\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{other}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that copies the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+convertible\+\_\+v$<$\+U\texorpdfstring{$\ast$}{*}, T\texorpdfstring{$\ast$}{*}$>$$>$$>$ }\\\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \& \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a59436d094058e31ba928aaf4b66dc78c}{operator=}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \&\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{other}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that copies the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} of a different type U, type A that is convertible to T. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \& \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a35c0932136899b2cf9e5acd864c0dbd5}{operator=}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \&\&\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{other}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Move assignment operator for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that transfers ownership of the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+convertible\+\_\+v$<$\+U\texorpdfstring{$\ast$}{*}, T\texorpdfstring{$\ast$}{*}$>$$>$$>$ }\\\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \& \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a98da485ef8be6d406699822dc15cd7fe}{operator=}} (\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \&\&\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{other}}) \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Move assignment operator for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that transfers ownership of the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} of a different type U, type A that is convertible to T. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{bool}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_ae39e4b46d98413036cc283dcd078192d}{expired}} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Checks if the weak reference has expired, meaning there are no strong references to the object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{bool}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a907faa053cac477aa7d8a11023716a46}{can\+Lock}} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Checks if the weak reference can be locked, meaning there are strong references to the object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a1e98692dad0604a6ed1d6176846272cc}{lock}} () \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{noexcept}}
+\begin{DoxyCompactList}\small\item\em Locks the weak reference, creating a strong reference to the object if it exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ }\\\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{class}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561}{Weak\+Ref}}
+\begin{DoxyCompactList}\small\item\em Friend declaration for weak reference to allow it to access private members of \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ }\\\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{class}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_acd36b719fd82af37b0d8a742b3963e42}{Ref}}
+\begin{DoxyCompactList}\small\item\em Friend declaration for \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} to allow it to access private members of \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561}{Allocator}} = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$\newline
+class memory\+::ref\+Counting\+::\+Weak\+Ref$<$ T, Allocator $>$}
+Forward declaration of \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} class. 
+
+\doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} is a weak reference type that allows access to an object without affecting its lifetime.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of object being referenced. \\
+\hline
+{\em Allocator} & The allocator to use for memory management.\\
+\hline
+{\em T} & The type of object being referenced, can be a single object or an array. \\
+\hline
+{\em Allocator} & The allocator to use for memory management, defaults to \doxylink{structmemory_1_1ref_counting_1_1_default_allocator}{Default\+Allocator}. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_af728a4252108438338214ba872ca8b20}\label{classmemory_1_1ref_counting_1_1_weak_ref_af728a4252108438338214ba872ca8b20} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!WeakRef@{WeakRef}}
+\index{WeakRef@{WeakRef}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{WeakRef()}{WeakRef()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::\+Weak\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$ \&}]{strong\+Ref }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Constructs a \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} from a strong reference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strong\+Ref} & The strong reference to create a weak reference from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a78a63246ce1f533011767566dd76e90a}\label{classmemory_1_1ref_counting_1_1_weak_ref_a78a63246ce1f533011767566dd76e90a} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!WeakRef@{WeakRef}}
+\index{WeakRef@{WeakRef}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{WeakRef()}{WeakRef()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+convertible\+\_\+v$<$\+U\texorpdfstring{$\ast$}{*}, T\texorpdfstring{$\ast$}{*}$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::\+Weak\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \&}]{strong\+Ref }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Constructs a \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} from a strong reference of a different type U, type A that is convertible to T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & The type of object being referenced, which must be convertible to T. \\
+\hline
+{\em A} & The allocator used by the strong reference, which must be convertible to Allocator. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em strong\+Ref} & The strong reference to create a weak reference from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_ac872e7c16be85d8b066116d320a9bd85}\label{classmemory_1_1ref_counting_1_1_weak_ref_ac872e7c16be85d8b066116d320a9bd85} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!WeakRef@{WeakRef}}
+\index{WeakRef@{WeakRef}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{WeakRef()}{WeakRef()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::\+Weak\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Constructs a \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} to copy from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a136b9447155b49dcdd2c344a67dce81d}\label{classmemory_1_1ref_counting_1_1_weak_ref_a136b9447155b49dcdd2c344a67dce81d} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!WeakRef@{WeakRef}}
+\index{WeakRef@{WeakRef}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{WeakRef()}{WeakRef()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+convertible\+\_\+v$<$\+U\texorpdfstring{$\ast$}{*}, T\texorpdfstring{$\ast$}{*}$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::\+Weak\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Constructs a \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} of a different type U, type A that is convertible to T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & The type of object being referenced, which must be convertible to T. \\
+\hline
+{\em A} & The allocator used by the other \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}, which must be convertible to Allocator. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} to copy from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_ad11c86bbdf8edaeb3c9982441dba481b}\label{classmemory_1_1ref_counting_1_1_weak_ref_ad11c86bbdf8edaeb3c9982441dba481b} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!WeakRef@{WeakRef}}
+\index{WeakRef@{WeakRef}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{WeakRef()}{WeakRef()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::\+Weak\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Move constructor for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that transfers ownership of the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} to move from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a732588a28772f749aa2aa9fca0b5fa75}\label{classmemory_1_1ref_counting_1_1_weak_ref_a732588a28772f749aa2aa9fca0b5fa75} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!WeakRef@{WeakRef}}
+\index{WeakRef@{WeakRef}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{WeakRef()}{WeakRef()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+convertible\+\_\+v$<$\+U\texorpdfstring{$\ast$}{*}, T\texorpdfstring{$\ast$}{*}$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::\+Weak\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Move constructor for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that transfers ownership of the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} of a different type U, type A that is convertible to T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & The type of object being referenced, which must be convertible to T. \\
+\hline
+{\em A} & The allocator used by the other \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}, which must be convertible to Allocator. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} to move from. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a907faa053cac477aa7d8a11023716a46}\label{classmemory_1_1ref_counting_1_1_weak_ref_a907faa053cac477aa7d8a11023716a46} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!canLock@{canLock}}
+\index{canLock@{canLock}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{canLock()}{canLock()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{bool}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::can\+Lock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the weak reference can be locked, meaning there are strong references to the object. 
+
+\begin{DoxyReturn}{Returns}
+A boolean indicating whether the weak reference can be locked. 
+\end{DoxyReturn}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_ae39e4b46d98413036cc283dcd078192d}\label{classmemory_1_1ref_counting_1_1_weak_ref_ae39e4b46d98413036cc283dcd078192d} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!expired@{expired}}
+\index{expired@{expired}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{expired()}{expired()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{bool}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::expired (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the weak reference has expired, meaning there are no strong references to the object. 
+
+\begin{DoxyReturn}{Returns}
+A boolean indicating whether the weak reference has expired. 
+\end{DoxyReturn}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a1e98692dad0604a6ed1d6176846272cc}\label{classmemory_1_1ref_counting_1_1_weak_ref_a1e98692dad0604a6ed1d6176846272cc} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!lock@{lock}}
+\index{lock@{lock}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{lock()}{lock()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\+::lock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Locks the weak reference, creating a strong reference to the object if it exists. 
+
+\begin{DoxyReturn}{Returns}
+The \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} object representing a strong reference to the object, or an empty \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} if the weak reference has expired. 
+\end{DoxyReturn}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a41c476542c2a6027e1731a1927c5b3e6}\label{classmemory_1_1ref_counting_1_1_weak_ref_a41c476542c2a6027e1731a1927c5b3e6} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \& \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561}{\+::operator}}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Copy assignment operator for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that copies the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} to copy from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} object. 
+\end{DoxyReturn}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a59436d094058e31ba928aaf4b66dc78c}\label{classmemory_1_1ref_counting_1_1_weak_ref_a59436d094058e31ba928aaf4b66dc78c} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+convertible\+\_\+v$<$\+U\texorpdfstring{$\ast$}{*}, T\texorpdfstring{$\ast$}{*}$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \& \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561}{\+::operator}}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{const}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Copy assignment operator for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that copies the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} of a different type U, type A that is convertible to T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & The type of object being referenced, which must be convertible to T. \\
+\hline
+{\em A} & The allocator used by the other \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}, which must be convertible to Allocator. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} to copy from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the current \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} object. 
+\end{DoxyReturn}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a35c0932136899b2cf9e5acd864c0dbd5}\label{classmemory_1_1ref_counting_1_1_weak_ref_a35c0932136899b2cf9e5acd864c0dbd5} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \& \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561}{\+::operator}}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Move assignment operator for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that transfers ownership of the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} to move from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the current \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} object. 
+\end{DoxyReturn}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a98da485ef8be6d406699822dc15cd7fe}\label{classmemory_1_1ref_counting_1_1_weak_ref_a98da485ef8be6d406699822dc15cd7fe} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}}  = std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+convertible\+\_\+v$<$\+U\texorpdfstring{$\ast$}{*}, T\texorpdfstring{$\ast$}{*}$>$$>$$>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}} \& \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{memory\+::ref\+Counting\+::\+Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}} $>$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561}{\+::operator}}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}$<$ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}}, \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Move assignment operator for \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} that transfers ownership of the control block from another \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} of a different type U, type A that is convertible to T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & The type of object being referenced, which must be convertible to T. \\
+\hline
+{\em A} & The allocator used by the other \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}, which must be convertible to Allocator. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} to move from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the current \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref} object. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_acd36b719fd82af37b0d8a742b3963e42}\label{classmemory_1_1ref_counting_1_1_weak_ref_acd36b719fd82af37b0d8a742b3963e42} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!Ref@{Ref}}
+\index{Ref@{Ref}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{Ref}{Ref}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{friend}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{class}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Friend declaration for \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref} to allow it to access private members of \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & The type of object being referenced by \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref}, can be different from T. \\
+\hline
+{\em A} & The allocator used by \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref}, can be different from Allocator. \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561}\label{classmemory_1_1ref_counting_1_1_weak_ref_a11a681207ec96e2fc88845a0aee44561} 
+\index{memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}!WeakRef@{WeakRef}}
+\index{WeakRef@{WeakRef}!memory::refCounting::WeakRef$<$ T, Allocator $>$@{memory::refCounting::WeakRef$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{WeakRef}{WeakRef}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}}  = Default\+Allocator$<$std\+::remove\+\_\+extent\+\_\+t$<$\+T$>$$>$$>$ \\
+template$<$\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{U}} , \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{typename}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{A}} $>$ \\
+\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{friend}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{class}} \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Friend declaration for weak reference to allow it to access private members of \doxylink{classmemory_1_1ref_counting_1_1_ref}{Ref}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & The type of object being referenced by \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}, can be different from T. \\
+\hline
+{\em A} & The allocator used by \doxylink{classmemory_1_1ref_counting_1_1_weak_ref}{Weak\+Ref}, can be different from Allocator. \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/adriangossl/\+Documents/git/mex\+Memory/include/memory/ref\+Counting/forward\+Decl.\+h\item 
+/\+Users/adriangossl/\+Documents/git/mex\+Memory/include/memory/ref\+Counting/weak\+Reference.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,175 @@
+\doxysection{strong\+Reference.\+h}
+\hypertarget{strong_reference_8h_source}{}\label{strong_reference_8h_source}\index{/Users/adriangossl/Documents/git/mexMemory/include/memory/refCounting/strongReference.h@{/Users/adriangossl/Documents/git/mexMemory/include/memory/refCounting/strongReference.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MEXMEMORY\_STRONGREFERENCE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MEXMEMORY\_STRONGREFERENCE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}reference.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}weakReference.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacememory_1_1ref_counting}{memory::refCounting}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Allocator\ =\ DefaultAllocator<std::remove\_extent\_t<T>>>}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{ReferenceBase}}<T,\ Allocator>}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{base}}\ =\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{ReferenceBase<T,\ Allocator>}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }base::controlBlock;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ A>}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ A>}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{WeakRef}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ retain()\ noexcept}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (controlBlock)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock-\/>incrementStrong();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ release()\ noexcept}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (controlBlock)}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock-\/>decrementStrong();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a21d8cb8e9904079f6565527ceb06954c}{Ref}}(\textcolor{keyword}{typename}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{base::controlBlockType}}*\ cb)\ noexcept\ :\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{base}}(cb)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ increment\ here\ -\/\ ControlBlock\ already\ starts\ with\ count=1}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a6b87cedcaa11bfe6a0e58aa0d70de38a}{Ref}}()\ noexcept\ =\ default;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ explicit\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}(std::nullopt\_t)\ noexcept\ :\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}()\ \{\}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ =\ std::enable\_if\_t<std::is\_convertible\_v<U*,\ T*>>>}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_aa12666cfa8a1eee161507eb4162a90fb}{Ref}}(U*\ ptr)\ :\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{base}}(new\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{ControlBlock}}<U,\ Allocator>(ptr))}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ControlBlock\ constructor\ already\ sets\ count\ to\ 1}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_af0ed1d875cfeaee49c18927b7ae409bc}{Ref}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{base}}(other.controlBlock)}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ retain();}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ A,\ \textcolor{keyword}{typename}\ =\ std::enable\_if\_t<std::is\_convertible\_v<U*,\ T*>>>}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a52e27ee8498d4ed63374f7ed8793a271}{Ref}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref<U,\ A>}}\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{base}}(other.controlBlock)}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ retain();}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a1c80a4f523130d7359117fad5155ad96}{Ref}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}\&\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{base}}(other.controlBlock)}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ other.controlBlock\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ Transfer\ ownership\ without\ changing\ count}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ A,\ \textcolor{keyword}{typename}\ =\ std::enable\_if\_t<std::is\_convertible\_v<U*,\ T*>>>}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a6b15dfa530c486d625159c431f759c3f}{Ref}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref<U,\ A>}}\&\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{base}}(other.controlBlock)}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ other.controlBlock\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ Transfer\ ownership\ without\ changing\ count}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a159bfe9d634a72a4047d2550bba6d37f}{\string~Ref}}()\ \{\ release();\ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}\&\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a44340f72bdc1cda35d65359e20ddc9d0}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}\&\ other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ release();}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock\ =\ other.controlBlock;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ retain();}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ A,\ \textcolor{keyword}{typename}\ =\ std::enable\_if\_t<std::is\_convertible\_v<U*,\ T*>>>}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}\&\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_af939ced8878f57a89ab98112ce772e9d}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref<U,\ A>}}\&\ other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\&other))}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ release();}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock\ =\ other.controlBlock;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ retain();}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}\&\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a744468e608e4cc38a9a0f8bee5d0ef23}{operator=}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}\&\&\ other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ release();}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock\ =\ other.controlBlock;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other.controlBlock\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ A,\ \textcolor{keyword}{typename}\ =\ std::enable\_if\_t<std::is\_convertible\_v<U*,\ T*>>>}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref}}\&\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a2a1caaff941c30bc00bae0e94493cd41}{operator=}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref}{Ref<U,\ A>}}\&\&\ other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\&other))}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ release();}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock\ =\ other.controlBlock;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other.controlBlock\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ Transfer\ ownership\ without\ changing\ count}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ A,\ \textcolor{keyword}{typename}\ =\ std::enable\_if\_t<std::is\_convertible\_v<U*,\ T*>>>}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_aa4a816bd84b4375cca6dde0c171a985f}{Ref}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{WeakRef<U,\ A>}}\&\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a533f1aed71c774e28846651d5755e0c2}{weak}})\ :\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_reference_base}{base}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a533f1aed71c774e28846651d5755e0c2}{weak}}.controlBlock)}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (controlBlock\ \&\&\ controlBlock-\/>strongCount()\ >\ 0)}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock-\/>incrementStrong();}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controlBlock\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{WeakRef<T,\ Allocator>}}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a533f1aed71c774e28846651d5755e0c2}{weak}}()\ const\ noexcept}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a11a681207ec96e2fc88845a0aee44561}{WeakRef<T,\ Allocator>}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a11a681207ec96e2fc88845a0aee44561}{U}},\ \textcolor{keyword}{typename}...\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}}>}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Ref<U>}}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_aca703cc12b15bca5fd04500aeb0792db}{makeRef}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}}\&\&...\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{args}});}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a11a681207ec96e2fc88845a0aee44561}{U}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a11a681207ec96e2fc88845a0aee44561}{A}},\ \textcolor{keyword}{typename}...\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}}>}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Ref<U,\ A>}}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_ref_a159a2f396c3d3ae02bacd621bffafc5f}{makeRefWithAllocator}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}}\&\&...\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{args}});}
+\DoxyCodeLine{00264\ \ \ \ \ \};}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}},\ \textcolor{keyword}{typename}...\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}}>}
+\DoxyCodeLine{00274\ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Ref<T>}}\ \mbox{\hyperlink{namespacememory_1_1ref_counting_a5664a9ce4b317e1b0cf3e7ff7868adab}{makeRef}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}}\&\&...\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{args}})}
+\DoxyCodeLine{00275\ \ \ \ \ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{ElementType}}\ =\ std::remove\_extent\_t<T>;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Ref<T>}}(\textcolor{keyword}{new}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_control_block}{ControlBlock}}<\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{ElementType}},\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{DefaultAllocator<ElementType>}}>(std::forward<Args>(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{args}})...));}
+\DoxyCodeLine{00278\ \ \ \ \ \}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{T}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Allocator}},\ \textcolor{keyword}{typename}...\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}}>}
+\DoxyCodeLine{00289\ \ \ \ \ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Ref<T,\ Allocator>}}\ \mbox{\hyperlink{namespacememory_1_1ref_counting_a4fcd55db54c0315da7240944687f0bd5}{makeRefWithAllocator}}(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Args}}\&\&...\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{args}})}
+\DoxyCodeLine{00290\ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{ElementType}}\ =\ std::remove\_extent\_t<T>;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{Ref<T,\ Allocator>}}(\textcolor{keyword}{new}\ \mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{ControlBlock<ElementType,\ Allocator>}}(std::forward<Args>(\mbox{\hyperlink{classmemory_1_1ref_counting_1_1_weak_ref}{args}})...));}
+\DoxyCodeLine{00293\ \ \ \ \ \}}
+\DoxyCodeLine{00294\ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MEXMEMORY\_STRONGREFERENCE\_H}}
+
+\end{DoxyCode}
