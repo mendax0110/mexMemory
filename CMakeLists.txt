@@ -31,10 +31,12 @@ if(BUILD_TESTS)
             tests/testIntegration.cpp
             tests/testDefaultAllocator.cpp
             tests/testDefaultAllocatorWithRef.cpp
+            tests/testAllocationMap.cpp
+            tests/testAllocRef.cpp
     )
 
     target_link_libraries(mexMemory_tests
-            GTest::gtest
+            #GTest::gtest
             GTest::gtest_main
             mexMemory
     )
@@ -46,6 +48,9 @@ if(BUILD_TESTS)
     add_test(NAME IntegrationTests COMMAND mexMemory_tests --gtest_filter=IntegrationTest*)
     add_test(NAME DefaultAllocatorTests COMMAND mexMemory_tests --gtest_filter=DefaultAllocatorTest*)
     add_test(NAME DefaultAllocatorWithRefTests COMMAND mexMemory_tests --gtest_filter=DefaultAllocatorWithRefTest*)
+    add_test(NAME AllocationMapTests COMMAND mexMemory_tests --gtest_filter=AllocationMapTest*)
+    add_test(NAME AllocRefTests COMMAND mexMemory_tests --gtest_filter=MemoryTest*)
+    add_test(NAME AllTests COMMAND mexMemory_tests)
 
     add_custom_target(run_tests ALL
             COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure

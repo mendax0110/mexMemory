@@ -101,8 +101,12 @@ namespace memory::refCounting
          * @brief Overloaded operator to access the object managed by this reference.
          * @return The raw pointer to the object managed by this reference.
          */
-        [[nodiscard]] elementType* operator->() const noexcept
+        [[nodiscard]] elementType* operator->() const
         {
+            if (!isValid())
+            {
+                throw std::runtime_error("Dereferencing an invalid reference.");
+            }
             return get();
         }
 
@@ -110,8 +114,12 @@ namespace memory::refCounting
          * @brief Overloaded dereference operator to access the object managed by this reference.
          * @return A reference to the object managed by this reference.
          */
-        [[nodiscard]] elementType& operator*() const noexcept
+        [[nodiscard]] elementType& operator*() const
         {
+            if (!isValid())
+            {
+                throw std::runtime_error("Dereferencing an invalid reference.");
+            }
             return *get();
         }
     };

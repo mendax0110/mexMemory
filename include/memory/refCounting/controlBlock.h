@@ -6,6 +6,7 @@
 #include <utility>
 #include <iostream>
 #include <string_view>
+#include <memory/refCounting/allocationMap.h>
 
 /// @brief memory::refCounting namespace, which contains the ControlBlock class for reference counting memory management \namespace memory::refCounting
 namespace memory::refCounting
@@ -86,6 +87,7 @@ namespace memory::refCounting
          */
         explicit ControlBlock(T* ptr) : objectPtr(ptr)
         {
+            TRACK_ALLOC(ptr);
             logCreation();
         }
 
@@ -97,6 +99,7 @@ namespace memory::refCounting
         template <typename... Args>
         explicit ControlBlock(Args&&... args) : objectPtr(Allocator::allocate(std::forward<Args>(args)...))
         {
+            TRACK_ALLOC(objectPtr);
             logCreation();
         }
 
@@ -108,6 +111,11 @@ namespace memory::refCounting
             logDestruction();
             if (objectPtr)
             {
+                if (strongRefs.load(std::memory_order_relaxed) > 0)
+                {
+                    UNTRACK_ALLOC(objectPtr);
+                }
+                //UNTRACK_ALLOC(objectPtr);
                 Allocator::deallocate(objectPtr);
                 objectPtr = nullptr;
             }
@@ -122,9 +130,14 @@ namespace memory::refCounting
             if (objectPtr)
             {
                 logAction("Deleting old object");
+                UNTRACK_ALLOC(objectPtr);
                 Allocator::deallocate(objectPtr);
             }
             objectPtr = ptr;
+            if (ptr)
+            {
+                TRACK_ALLOC(ptr);
+            }
             logAction("Setting new object");
         }
 
@@ -159,6 +172,7 @@ namespace memory::refCounting
                 if (objectPtr)
                 {
                     logAction("Deleting object");
+                    UNTRACK_ALLOC(objectPtr);
                     Allocator::deallocate(objectPtr);
                 }
                 objectPtr = nullptr;
