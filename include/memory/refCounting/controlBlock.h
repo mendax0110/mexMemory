@@ -34,10 +34,32 @@ namespace memory::refCounting
         static T* allocate(Args&&... args) { return new T(std::forward<Args>(args)...); }
 
         /**
+         * @brief Deallocates memory for a polymorphic object of type T.
+         * @tparam U The type of the object to deallocate, which must be polymorphic.
+         * @param ptr The pointer to the object to deallocate.
+         */
+        template <typename U>
+        static void deallocate_polymorphic(U* ptr)
+        {
+            delete ptr;
+        }
+
+        /**
          * @brief Deallocates memory for a single object of type T.
          * @param ptr The pointer to the object to deallocate.
          */
-        static void deallocate(T* ptr) { delete ptr; }
+        static void deallocate(T* ptr)
+        {
+            if constexpr (std::is_polymorphic_v<T>)
+            {
+                deallocate_polymorphic(ptr);
+                //delete ptr;
+            }
+            else
+            {
+                delete ptr;
+            }
+        }
     };
 
     /**
@@ -97,7 +119,7 @@ namespace memory::refCounting
          * @param args The constructor arguments.
          */
         template <typename... Args>
-        explicit ControlBlock(Args&&... args) : objectPtr(Allocator::allocate(std::forward<Args>(args)...))
+        explicit ControlBlock(Args&&... args) : objectPtr(Allocator::allocate(std::forward<Args>(args)...)), typeInfo(&typeid(T))
         {
             TRACK_ALLOC(objectPtr);
             logCreation();
@@ -117,6 +139,61 @@ namespace memory::refCounting
                 }
                 //UNTRACK_ALLOC(objectPtr);
                 Allocator::deallocate(objectPtr);
+                objectPtr = nullptr;
+            }
+        }
+
+        /**
+         * @brief Casts the object pointer to a different type U if possible.
+         * @tparam U The type to cast to.
+         * @return A pointer to the object of type U if the cast is valid, otherwise nullptr.
+         */
+        template<typename U>
+        U* cast()
+        {
+            if (typeid(U) == *typeInfo || std::is_base_of_v<U, T> || std::is_base_of_v<T, U>)
+            {
+                return static_cast<U*>(objectPtr);
+            }
+            return nullptr;
+        }
+
+        /**
+         * @brief Safely casts the object pointer to a different type U, using dynamic_cast if necessary.
+         * @tparam U The type to cast to.
+         * @param ptr The pointer to the object of type T.
+         * @return A pointer to the object of type U if the cast is valid, otherwise nullptr.
+         */
+        template<typename U>
+        static U* safe_cast(T* ptr)
+        {
+            if constexpr (std::is_base_of_v<T, U> || std::is_base_of_v<U, T>)
+            {
+                return static_cast<U*>(ptr);
+            }
+            else
+            {
+                return dynamic_cast<U*>(ptr);
+            }
+        }
+
+        /**
+         * @brief Deallocates the object managed by this ControlBlock, if it exists.
+         * This method is called when the last strong reference to the object is released.
+         */
+        void deallocateObject()
+        {
+            if (objectPtr)
+            {
+                UNTRACK_ALLOC(objectPtr);
+                if (*typeInfo == typeid(T))
+                {
+                    Allocator::deallocate(static_cast<T*>(objectPtr));
+                }
+                else
+                {
+                    operator delete(objectPtr);
+                }
                 objectPtr = nullptr;
             }
         }
@@ -222,6 +299,18 @@ namespace memory::refCounting
         }
 
         /**
+         * @brief Sets the strong reference count to a specific value.
+         * @param count The new strong reference count.
+         * @return The new strong reference count.
+         */
+        size_t setStrongCount(size_t count) noexcept
+        {
+            strongRefs.store(count, std::memory_order_relaxed);
+            logReferenceChange("Set strong reference count", count);
+            return count;
+        }
+
+        /**
          * @brief Gets the current weak reference count.
          * @return A size_t representing the number of weak references.
          */
@@ -250,6 +339,7 @@ namespace memory::refCounting
 
     private:
         T* objectPtr;
+        std::type_info const* typeInfo;
         std::atomic<size_t> strongRefs{1};
         std::atomic<size_t> weakRefs{0};
 

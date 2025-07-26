@@ -50,6 +50,15 @@ namespace memory::refCounting
     public:
 
         /**
+         * @brief Gets the control block associated with this reference.
+         * @return A pointer to the control block.
+         */
+        [[nodiscard]] controlBlockType* getControlBlock() const noexcept
+        {
+            return controlBlock;
+        }
+
+        /**
          * @brief Checks if the reference is valid, meaning it has a control block and the object exists.
          * @return A boolean indicating whether the reference is valid.
          */

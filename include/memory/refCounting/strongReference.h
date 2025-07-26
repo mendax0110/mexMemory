@@ -22,6 +22,7 @@ namespace memory::refCounting
          */
         using base = ReferenceBase<T, Allocator>;
         using base::controlBlock;
+        using typename base::controlBlockType;
 
         /**
          * @brief Friend declaration for Ref to allow it to access private members of Ref.
@@ -85,6 +86,15 @@ namespace memory::refCounting
          */
         explicit Ref(std::nullopt_t) noexcept : Ref() {}
 
+        template <typename OtherT, typename OtherAllocator>
+        explicit Ref(const Ref<OtherT, OtherAllocator>& other, typename std::enable_if_t<std::is_convertible_v<OtherT*, T*>>* = nullptr) : base(other.controlBlock)
+        {
+            if (controlBlock)
+            {
+                controlBlock->incrementStrong();
+            }
+        }
+
         /**
          * @brief Constructs a Ref from a raw pointer to an object of type U.
          * @tparam U The type of object being referenced, which must be convertible to T.
@@ -95,6 +105,7 @@ namespace memory::refCounting
         {
             // ControlBlock constructor already sets count to 1
         }
+
 
         /**
          * @brief Constructs a Ref from a raw pointer to an object of type Ref&
@@ -112,7 +123,7 @@ namespace memory::refCounting
          * @param other The Ref object to copy from.
          */
         template <typename U, typename A, typename = std::enable_if_t<std::is_convertible_v<U*, T*>>>
-        Ref(const Ref<U, A>& other) noexcept : base(other.controlBlock)
+        Ref(const Ref<U, A>& other) noexcept : base(reinterpret_cast<controlBlockType*>(other.controlBlock))
         {
             retain();
         }
@@ -133,9 +144,9 @@ namespace memory::refCounting
          * @param other The Ref object to move from.
          */
         template <typename U, typename A, typename = std::enable_if_t<std::is_convertible_v<U*, T*>>>
-        Ref(Ref<U, A>&& other) noexcept : base(other.controlBlock)
+        Ref(Ref<U, A>&& other) noexcept : base(reinterpret_cast<typename base::controlBlockType*>(other.controlBlock))
         {
-            other.controlBlock = nullptr; // Transfer ownership without changing count
+            other.controlBlock = nullptr;
         }
 
         /**
@@ -261,6 +272,15 @@ namespace memory::refCounting
          */
         template <typename U, typename A, typename... Args>
         friend Ref<U, A> makeRefWithAllocator(Args&&... args);
+
+        template <typename U, typename T2, typename A>
+        friend Ref<U, A> static_pointer_cast(const Ref<T2, A>& ref) noexcept;
+
+        template <typename U, typename T2, typename A>
+        friend Ref<U, A> dynamic_pointer_cast(const Ref<T2, A>& ref) noexcept;
+
+        template <typename U, typename T2, typename A>
+        friend Ref<U, A> const_pointer_cast(const Ref<T2, A>& ref) noexcept;
     };
 
     /**
