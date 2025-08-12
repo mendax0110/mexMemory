@@ -154,9 +154,11 @@ namespace memory::refCounting
         static void untrackAllocation(void* ptr) noexcept
         {
             if (!enabled_) return;
-
             std::lock_guard<std::mutex> lock(mutex_);
-            allocations_.erase(ptr);
+            if (allocations_.contains(ptr))
+            {
+                allocations_.erase(ptr);
+            }
         }
 
         /**

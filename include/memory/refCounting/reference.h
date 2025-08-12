@@ -10,6 +10,15 @@
 namespace memory::refCounting
 {
     /**
+     * @brief Thread-local storage for hazard pointers to prevent premature deletion of control blocks.
+     * Hazard pointers are used to safely access control blocks in a concurrent environment.
+     * @tparam T The type of object being referenced, can be a single object or an array.
+     * @tparam Allocator The allocator to use for memory management, defaults to DefaultAllocator.
+     */
+    template<typename T, typename Allocator>
+    thread_local std::vector<ControlBlock<T, Allocator>*> hazard_pointers;
+
+    /**
      * @brief Base class for reference types, providing common functionality for strong and weak references.
      * @tparam T The type of object being referenced, can be a single object or an array.
      * @tparam Allocator The allocator to use for memory management, defaults to DefaultAllocator.
@@ -24,7 +33,6 @@ namespace memory::refCounting
          */
         using elementType = std::remove_extent_t<T>;
         using controlBlockType = ControlBlock<elementType, Allocator>;
-
         controlBlockType* controlBlock = nullptr;
 
         /**
@@ -116,6 +124,7 @@ namespace memory::refCounting
             {
                 throw std::runtime_error("Dereferencing an invalid reference.");
             }
+            hazard_pointers<elementType, Allocator>.push_back(controlBlock);
             return get();
         }
 
@@ -130,6 +139,16 @@ namespace memory::refCounting
                 throw std::runtime_error("Dereferencing an invalid reference.");
             }
             return *get();
+        }
+
+        /**
+         * @brief Releases the hazard pointers associated with the control block.
+         * @param cb The control block to release hazard pointers for.
+         */
+        void releaseHazardPointers(controlBlockType* cb)
+        {
+            auto& hp = hazard_pointers<elementType, Allocator>;
+            hp.erase(std::remove(hp.begin(), hp.end(), cb), hp.end());
         }
     };
 }

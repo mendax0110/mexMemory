@@ -48,6 +48,7 @@ namespace memory::refCounting
             if (controlBlock)
             {
                 controlBlock->incrementStrong();
+                std::atomic_thread_fence(std::memory_order_release);
             }
         }
 
@@ -59,6 +60,7 @@ namespace memory::refCounting
             if (controlBlock)
             {
                 controlBlock->decrementStrong();
+                std::atomic_thread_fence(std::memory_order_acquire);
                 controlBlock = nullptr;
             }
         }

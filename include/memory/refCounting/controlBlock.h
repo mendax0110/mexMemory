@@ -130,16 +130,16 @@ namespace memory::refCounting
          */
         ~ControlBlock()
         {
+            std::lock_guard lock(AllocationTracker::getMutex());
             logDestruction();
             if (objectPtr)
             {
                 if (strongRefs.load(std::memory_order_relaxed) > 0)
                 {
                     UNTRACK_ALLOC(objectPtr);
+                    Allocator::deallocate(objectPtr);
+                    objectPtr = nullptr;
                 }
-                //UNTRACK_ALLOC(objectPtr);
-                Allocator::deallocate(objectPtr);
-                objectPtr = nullptr;
             }
         }
 
@@ -232,7 +232,7 @@ namespace memory::refCounting
          */
         void incrementStrong() noexcept
         {
-            strongRefs.fetch_add(1, std::memory_order_relaxed);
+            strongRefs.fetch_add(1, std::memory_order_acq_rel);
             logReferenceChange("Increment strong reference", strongRefs.load());
         }
 
@@ -246,15 +246,16 @@ namespace memory::refCounting
 
             if (prev == 1)
             {
+                //std::lock_guard lock(AllocationTracker::getMutex());
                 if (objectPtr)
                 {
                     logAction("Deleting object");
-                    UNTRACK_ALLOC(objectPtr);
                     Allocator::deallocate(objectPtr);
+                    UNTRACK_ALLOC(objectPtr);
                 }
                 objectPtr = nullptr;
 
-                if (weakRefs.load(std::memory_order_relaxed) == 0)
+                if (weakRefs.load(std::memory_order_acquire) == 0)
                 {
                     logAction("Deleting control block (no weak references)");
                     delete this;
