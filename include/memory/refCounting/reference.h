@@ -150,6 +150,90 @@ namespace memory::refCounting
             auto& hp = hazard_pointers<elementType, Allocator>;
             hp.erase(std::remove(hp.begin(), hp.end(), cb), hp.end());
         }
+
+        /**
+         * @brief Equality comparison operator.
+         * @param other The other reference to compare with.
+         * @return True if both references point to the same object, false otherwise.
+         */
+        template<typename U, typename AllocatorU>
+        bool operator==(const ReferenceBase<U, AllocatorU>& other) const noexcept
+        {
+            return get() == other.get();
+        }
+
+        /**
+         * @brief Inequality comparison operator.
+         * @param other The other reference to compare with.
+         * @return True if references point to different objects, false otherwise.
+         */
+        template<typename U, typename AllocatorU>
+        bool operator!=(const ReferenceBase<U, AllocatorU>& other) const noexcept
+        {
+            return !(*this == other);
+        }
+
+        /**
+         * @brief Less than comparison operator for use in containers.
+         * @param other The other reference to compare with.
+         * @return True if this reference's pointer is less than the other's.
+         */
+        template<typename U, typename AllocatorU>
+        bool operator<(const ReferenceBase<U, AllocatorU>& other) const noexcept
+        {
+            return get() < other.get();
+        }
+
+        /**
+         * @brief Greater than comparison operator.
+         * @param other The other reference to compare with.
+         * @return True if this reference's pointer is greater than the other's.
+         */
+        template<typename U, typename AllocatorU>
+        bool operator>(const ReferenceBase<U, AllocatorU>& other) const noexcept
+        {
+            return other < *this;
+        }
+
+        /**
+         * @brief Less than or equal comparison operator.
+         * @param other The other reference to compare with.
+         * @return True if this reference's pointer is less than or equal to the other's.
+         */
+        template<typename U, typename AllocatorU>
+        bool operator<=(const ReferenceBase<U, AllocatorU>& other) const noexcept
+        {
+            return !(other < *this);
+        }
+
+        /**
+         * @brief Greater than or equal comparison operator.
+         * @param other The other reference to compare with.
+         * @return True if this reference's pointer is greater than or equal to the other's.
+         */
+        template<typename U, typename AllocatorU>
+        bool operator>=(const ReferenceBase<U, AllocatorU>& other) const noexcept
+        {
+            return !(*this < other);
+        }
+
+        /**
+         * @brief Equality comparison with nullptr.
+         * @return True if the reference is null, false otherwise.
+         */
+        bool operator==(std::nullptr_t) const noexcept
+        {
+            return get() == nullptr;
+        }
+
+        /**
+         * @brief Inequality comparison with nullptr.
+         * @return True if the reference is not null, false otherwise.
+         */
+        bool operator!=(std::nullptr_t) const noexcept
+        {
+            return get() != nullptr;
+        }
     };
 }
 

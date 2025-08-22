@@ -247,6 +247,111 @@ namespace memory::refCounting
             }
             return total;
         }
+
+        /**
+         * @brief Memory statistics for detailed analysis.
+         */
+        struct MemoryStatistics
+        {
+            size_t total_allocations{0};
+            size_t total_bytes{0};
+            size_t largest_allocation{0};
+            size_t smallest_allocation{SIZE_MAX};
+            double average_allocation_size{0.0};
+            std::unordered_map<std::string, size_t> allocations_by_type;
+            std::unordered_map<std::string, size_t> bytes_by_type;
+        };
+
+        /**
+         * @brief Gets detailed memory usage statistics.
+         * @return MemoryStatistics structure containing detailed information.
+         */
+        static MemoryStatistics getStatistics() noexcept
+        {
+            std::lock_guard<std::mutex> lock(mutex_);
+            MemoryStatistics stats;
+
+            stats.total_allocations = allocations_.size();
+            
+            for (const auto& [ptr, info] : allocations_)
+            {
+                stats.total_bytes += info.size;
+                stats.largest_allocation = std::max(stats.largest_allocation, info.size);
+                stats.smallest_allocation = std::min(stats.smallest_allocation, info.size);
+                
+                // Count by type
+                stats.allocations_by_type[info.type]++;
+                stats.bytes_by_type[info.type] += info.size;
+            }
+
+            if (stats.total_allocations > 0)
+            {
+                stats.average_allocation_size = static_cast<double>(stats.total_bytes) / stats.total_allocations;
+            }
+            else
+            {
+                stats.smallest_allocation = 0;
+            }
+
+            return stats;
+        }
+
+        /**
+         * @brief Prints detailed memory statistics to the specified stream.
+         * @param stream The output stream to print to (default: std::cout).
+         */
+        static void printStatistics(std::ostream* stream = &std::cout) noexcept
+        {
+            if (!stream) return;
+
+            auto stats = getStatistics();
+            
+            *stream << "\n=== Memory Usage Statistics ===\n";
+            *stream << "Total allocations: " << stats.total_allocations << "\n";
+            *stream << "Total bytes: " << stats.total_bytes << "\n";
+            
+            if (stats.total_allocations > 0)
+            {
+                *stream << "Largest allocation: " << stats.largest_allocation << " bytes\n";
+                *stream << "Smallest allocation: " << stats.smallest_allocation << " bytes\n";
+                *stream << "Average allocation size: " << std::fixed << std::setprecision(2) 
+                       << stats.average_allocation_size << " bytes\n";
+            }
+
+            if (!stats.allocations_by_type.empty())
+            {
+                *stream << "\nAllocations by type:\n";
+                for (const auto& [type, count] : stats.allocations_by_type)
+                {
+                    auto bytes = stats.bytes_by_type.at(type);
+                    *stream << "  " << std::setw(30) << type 
+                           << ": " << std::setw(6) << count << " allocations, "
+                           << std::setw(10) << bytes << " bytes\n";
+                }
+            }
+            *stream << "==============================\n\n";
+        }
+
+        /**
+         * @brief Gets allocations filtered by type name.
+         * @param typeName The type name to filter by.
+         * @return Vector of allocation info for the specified type.
+         */
+        static std::vector<AllocationInfo> getAllocationsByType(const std::string& typeName) noexcept
+        {
+            std::lock_guard<std::mutex> lock(mutex_);
+            std::vector<AllocationInfo> result;
+            
+            for (const auto& [ptr, info] : allocations_)
+            {
+                if (info.type == typeName)
+                {
+                    result.push_back(info);
+                }
+            }
+            
+            return result;
+        }
     };
 
     /// @brief LeakDetector class to automatically check for memory leaks on destruction. \class LeakDetector

@@ -34,6 +34,7 @@ if(BUILD_TESTS)
             tests/testAllocationMap.cpp
             tests/testAllocRef.cpp
             tests/testPointerCasting.cpp
+            tests/testEnhancedFeatures.cpp
     )
 
     target_link_libraries(mexMemory_tests
@@ -52,6 +53,7 @@ if(BUILD_TESTS)
     add_test(NAME AllocationMapTests COMMAND mexMemory_tests --gtest_filter=AllocationMapTest*)
     add_test(NAME AllocRefTests COMMAND mexMemory_tests --gtest_filter=MemoryTest*)
     add_test(NAME PointerCastingTests COMMAND mexMemory_tests --gtest_filter=PointerCastingTest*)
+    add_test(NAME EnhancedFeaturesTests COMMAND mexMemory_tests --gtest_filter=EnhancedFeaturesTest*)
     add_test(NAME AllTests COMMAND mexMemory_tests)
 
     add_custom_target(run_tests ALL
