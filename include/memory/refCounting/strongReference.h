@@ -41,6 +41,21 @@ namespace memory::refCounting
         friend class WeakRef;
 
         /**
+         * @brief Friend declarations for casting functions.
+         */
+        template <typename U, typename V, typename A>
+        friend Ref<U, A> static_pointer_cast(const Ref<V, A>& ref) noexcept;
+        
+        template <typename U, typename V, typename A>
+        friend Ref<U, A> dynamic_pointer_cast(const Ref<V, A>& ref) noexcept;
+        
+        template <typename U, typename V, typename A>
+        friend Ref<U, A> const_pointer_cast(const Ref<V, A>& ref) noexcept;
+        
+        template <typename U, typename V, typename A>
+        friend Ref<U, DefaultAllocator<std::remove_extent_t<U>>> reinterpret_pointer_cast(const Ref<V, A>& ref) noexcept;
+
+        /**
          * @brief Retains the strong reference to the object managed by this Ref.
          */
         void retain() noexcept
